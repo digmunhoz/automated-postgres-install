@@ -1,0 +1,14 @@
+#******************************************************************************
+# Role: sysctl
+# File: defaults/main.yml
+#******************************************************************************
+sysctl_tuning:
+- { name: vm.overcommit_memory, value:  2 }
+- { name: vm.overcommit_ratio, value: 99 }
+- { name: vm.swappiness, value: 1 }
+- { name: vm.dirty_expire_centisecs, value: 500 }
+- { name: vm.dirty_writeback_centisecs, value: 250 }
+- { name: vm.dirty_ratio, value: 15 }
+- { name: vm.dirty_background_ratio, value: 3 }
+- { name: vm.zone_reclaim_mode, value: 0 }
+- { name: kernel.sched_migration_cost_ns, value: 500000 }

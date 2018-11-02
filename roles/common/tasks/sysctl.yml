@@ -1,0 +1,10 @@
+- name: Sysctl Tuning
+  sysctl:
+    sysctl_file: /etc/sysctl.conf
+    state: present
+    reload: yes
+    ignoreerrors: no
+    sysctl_set: no
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items: "{{ sysctl_tuning }}"

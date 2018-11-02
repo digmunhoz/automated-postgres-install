@@ -1,0 +1,31 @@
+- name: Remove necessary YUM packages
+  yum:
+    allow_downgrade: no
+    disable_gpg_check: no
+    installroot: /
+    security: no
+    skip_broken: no
+    state: absent
+    update_cache: yes
+    validate_certs: yes
+    pkg: "{{ item.name }}"
+  with_items: "{{ yum_packages2remove }}"
+
+- name: Install necessary YUM packages
+  yum: 
+    allow_downgrade: no
+    disable_gpg_check: no
+    installroot: /
+    security: no
+    skip_broken: no
+    state: present
+    update_cache: yes
+    enablerepo: epel
+    validate_certs: yes
+    pkg: "{{ item.name }}"
+  with_items: "{{ yum_packages2install }}"
+
+- name: Install necessary PIP packages
+  pip:
+    name: "{{ item.name }}"
+  with_items: "{{ pip_packages }}"

@@ -1,0 +1,5 @@
+- name: Disable transparent_hugepage at startup
+  lineinfile: dest=/etc/rc.local line="echo -e never | tee -a /sys/kernel/mm/transparent_hugepage/enabled /sys/kernel/mm/transparent_hugepage/defrag" insertbefore="exit 0"
+
+- name: Disable transparent_hugepage now
+  shell: echo -e never | tee -a /sys/kernel/mm/transparent_hugepage/enabled /sys/kernel/mm/transparent_hugepage/defrag

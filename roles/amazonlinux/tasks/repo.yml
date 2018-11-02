@@ -1,0 +1,50 @@
+- name: Postgres repository
+  yum_repository:
+    name: pgdg95
+    description: PostgreSQL 9.5 - Amazon Linux AMI 2015.03 - $basearch
+    file: pgdg-95-ami201503
+    baseurl: https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-6-$basearch
+    gpgcheck: no
+    enabled: yes
+    priority: 1
+
+- name: Postgres repository source
+  yum_repository:                                                                                                                                             
+    name: pgdg95-source
+    description: PostgreSQL 9.5 - Amazon Linux AMI 2015.03 - $basearch - Source
+    file: pgdg-95-ami201503
+    baseurl: https://download.postgresql.org/pub/repos/yum/srpms/9.5/redhat/rhel-6-$basearch
+    gpgcheck: no
+    enabled: no
+    priority: 1
+
+- name: Postgres pglogical repository
+  yum_repository:                                                                                    
+    name: pglogical
+    description: pglogical for PostgreSQL for RHEL $releasever - $basearch
+    file: pglogical
+    baseurl: http://packages.2ndquadrant.com/pglogical/yum/rhel-6-$basearch
+    gpgcheck: no
+    enabled: yes
+    priority: 1
+
+- name: Postgres pglogical testing repository
+  yum_repository:
+    name: pglogical-testing
+    description: pglogical for PostgreSQL for RHEL $releasever - $basearch - testing
+    file: pglogical
+    baseurl: http://packages.2ndquadrant.com/pglogical/yum-testing/rhel-6-$basearch
+    gpgcheck: no
+    enabled: no
+    priority: 1
+
+- name: Postgres pglogical Repository
+  yum_repository:
+    name: pglogical-source
+    failovermethod: priority
+    description: pglogical for PostgreSQL for RHEL $releasever - Source
+    file: pglogical
+    baseurl: http://packages.2ndquadrant.com/pglogical/yum/rhel-6
+    gpgcheck: no
+    enabled: no
+    priority: 1

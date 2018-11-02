@@ -1,0 +1,28 @@
+#******************************************************************************                                                                               
+# Role: packages
+# File: defaults/main.yml
+#******************************************************************************
+yum_packages2remove:
+- { name: libevent }
+
+# Libevent2 ref.: https://centos.pkgs.org/6/centos-x86_64/libevent2-2.0.21-2.el6.x86_64.rpm.html
+yum_packages2install:
+- { name: "http://mirror.centos.org/centos/6/os/x86_64/Packages/libevent2-2.0.21-2.el6.x86_64.rpm" }
+- { name: postgresql95 }
+- { name: postgresql95-contrib }
+- { name: postgresql95-libs }
+- { name: postgresql95-server }
+- { name: postgresql95-devel }
+- { name: postgresql95-debuginfo }
+- { name: pgbouncer }
+- { name: pg_activity }
+- { name: postgresql95-pglogical }
+- { name: python-psycopg2 }
+- { name: pgbouncer }
+- { name: gcc }
+
+pip_packages:
+- { name: psutil }
+- { name: psycopg2 }
+- { name: psycopg2-binary }
+- { name: pg-activity }

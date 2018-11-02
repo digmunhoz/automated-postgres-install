@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+
+  # Roles definitions
+  roles:
+    - role: common
+    - role: amazonlinux
+      when: ansible_distribution == "Amazon"
